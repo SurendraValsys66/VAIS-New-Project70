@@ -309,6 +309,7 @@ function DeleteConfirmation({
 
 // Main component
 export default function CampaignRequestsList() {
+  const navigate = useNavigate();
   const [campaigns, setCampaigns] =
     useState<CampaignRequest[]>(mockCampaignRequests);
   const [searchQuery, setSearchQuery] = useState("");
