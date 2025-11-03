@@ -511,30 +511,24 @@ export default function CampaignRequestsList() {
                   </TableCell>
                   <TableCell className="text-right">
                     <div className="flex items-center justify-end gap-2">
-                      {campaign.status === "Completed" ? (
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          asChild
-                          title="View campaign overview"
-                          className="bg-white hover:bg-blue-50 border border-blue-300 text-blue-600 hover:text-blue-700"
-                        >
-                          <Link to={`/campaign-overview/${campaign.id}`}>
-                            <Eye className="w-4 h-4" />
-                          </Link>
-                        </Button>
-                      ) : (
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => handleViewCampaign(campaign)}
-                          disabled={true}
-                          title="Only available for completed campaigns"
-                          className="bg-white hover:bg-blue-50 border border-blue-300 text-blue-600 hover:text-blue-700"
-                        >
-                          <Eye className="w-4 h-4" />
-                        </Button>
-                      )}
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => {
+                          if (campaign.status === "Completed") {
+                            window.location.href = `/campaign-overview/${campaign.id}`;
+                          }
+                        }}
+                        disabled={campaign.status !== "Completed"}
+                        title={
+                          campaign.status !== "Completed"
+                            ? "Only available for completed campaigns"
+                            : "View campaign overview"
+                        }
+                        className="bg-white hover:bg-blue-50 border border-blue-300 text-blue-600 hover:text-blue-700"
+                      >
+                        <Eye className="w-4 h-4" />
+                      </Button>
                       <Button
                         variant="outline"
                         size="sm"
