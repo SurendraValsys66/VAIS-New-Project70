@@ -402,6 +402,54 @@ export default function VAISResults() {
     markStepCompleted("vaisResultsGenerated");
   }, []);
 
+  // Disable copy and paste functionality on VAIS results page
+  useEffect(() => {
+    const handleCopy = (e: ClipboardEvent) => {
+      e.preventDefault();
+      return false;
+    };
+
+    const handlePaste = (e: ClipboardEvent) => {
+      e.preventDefault();
+      return false;
+    };
+
+    const handleCut = (e: ClipboardEvent) => {
+      e.preventDefault();
+      return false;
+    };
+
+    const handleContextMenu = (e: MouseEvent) => {
+      e.preventDefault();
+      return false;
+    };
+
+    document.addEventListener("copy", handleCopy);
+    document.addEventListener("paste", handlePaste);
+    document.addEventListener("cut", handleCut);
+    document.addEventListener("contextmenu", handleContextMenu);
+
+    // Add CSS to prevent text selection
+    const style = document.createElement("style");
+    style.textContent = `
+      .vais-results-page {
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+      }
+    `;
+    document.head.appendChild(style);
+
+    return () => {
+      document.removeEventListener("copy", handleCopy);
+      document.removeEventListener("paste", handlePaste);
+      document.removeEventListener("cut", handleCut);
+      document.removeEventListener("contextmenu", handleContextMenu);
+      document.head.removeChild(style);
+    };
+  }, []);
+
   const openDetails = (company: CompanyData) => {
     setActiveCompany(company);
     setDetailsOpen(true);
