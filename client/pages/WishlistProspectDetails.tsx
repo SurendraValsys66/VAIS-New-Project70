@@ -1115,7 +1115,7 @@ export default function WishlistProspectDetails() {
                       ))
                     ) : (
                       <TableRow>
-                        <TableCell colSpan={6} className="text-center py-8">
+                        <TableCell colSpan={9} className="text-center py-8">
                           <div className="text-gray-500">No prospects found</div>
                         </TableCell>
                       </TableRow>
