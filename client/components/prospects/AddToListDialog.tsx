@@ -41,6 +41,29 @@ export default function AddToListDialog({
   onProspectAdded,
 }: AddToListDialogProps) {
   const { toast } = useToast();
+
+  // Add scrollbar styling
+  React.useEffect(() => {
+    const style = document.createElement("style");
+    style.textContent = `
+      .add-to-list-scroll::-webkit-scrollbar {
+        width: 8px;
+      }
+      .add-to-list-scroll::-webkit-scrollbar-track {
+        background: #f1f5f9;
+        border-radius: 4px;
+      }
+      .add-to-list-scroll::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+      }
+      .add-to-list-scroll::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+    `;
+    document.head.appendChild(style);
+    return () => document.head.removeChild(style);
+  }, []);
   const [showCreateList, setShowCreateList] = useState(false);
   const [newListName, setNewListName] = useState("");
   const [selectedListIds, setSelectedListIds] = useState<Set<string>>(new Set());
