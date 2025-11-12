@@ -48,7 +48,7 @@ import {
   Eye,
   Edit,
   Trash2,
-  MoreVertical,
+  Download,
   Heart,
   BookmarkMinus,
 } from "lucide-react";
