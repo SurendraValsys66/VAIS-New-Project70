@@ -1292,18 +1292,27 @@ export default function WishlistProspectDetails() {
                           )}
                           {columnVisibility.actions && (
                             <TableCell>
-                              <Tooltip>
-                                <TooltipTrigger asChild>
-                                  <Button
-                                    variant="ghost"
-                                    size="sm"
-                                    className="h-8 w-8 p-0"
-                                  >
-                                    <Mail className="w-4 h-4 text-gray-400 hover:text-gray-600" />
-                                  </Button>
-                                </TooltipTrigger>
-                                <TooltipContent>{prospect.email}</TooltipContent>
-                              </Tooltip>
+                              <div className="flex items-center space-x-2">
+                                <Tooltip>
+                                  <TooltipTrigger asChild>
+                                    <Button
+                                      variant="ghost"
+                                      size="sm"
+                                      className="h-8 w-8 p-0"
+                                      onClick={() => {
+                                        navigator.clipboard.writeText(prospect.email);
+                                        toast({
+                                          title: "Copied",
+                                          description: "Email copied to clipboard",
+                                        });
+                                      }}
+                                    >
+                                      <Mail className="w-4 h-4 text-gray-400 hover:text-gray-600" />
+                                    </Button>
+                                  </TooltipTrigger>
+                                  <TooltipContent>{prospect.email}</TooltipContent>
+                                </Tooltip>
+                              </div>
                             </TableCell>
                           )}
                         </TableRow>
