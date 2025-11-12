@@ -44,6 +44,11 @@ export default function AddToListDialog({
   const [showCreateList, setShowCreateList] = useState(false);
   const [newListName, setNewListName] = useState("");
   const [selectedListIds, setSelectedListIds] = useState<Set<string>>(new Set());
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredLists = lists.filter((list) =>
+    list.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   const handleCreateList = () => {
     if (!newListName.trim()) {
