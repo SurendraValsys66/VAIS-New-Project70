@@ -83,8 +83,8 @@ export default function CancelSubscriptionModal({
             {/* Success Icon */}
             <div className="relative">
               <div className="absolute inset-0 bg-green-100 rounded-full animate-pulse"></div>
-              <div className="relative w-16 h-16 rounded-full bg-green-50 flex items-center justify-center">
-                <CheckCircle className="w-10 h-10 text-green-600" />
+              <div className="relative w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-green-50 flex items-center justify-center">
+                <CheckCircle className="w-7 h-7 sm:w-10 sm:h-10 text-green-600" />
               </div>
             </div>
 
