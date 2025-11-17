@@ -501,6 +501,7 @@ export default function CreateAccount() {
           open={agreementModalOpen}
           onOpenChange={setAgreementModalOpen}
           onConfirm={handleAgreementConfirm}
+          isAlreadyConfirmed={agreementConfirmed}
         />
       </div>
 
