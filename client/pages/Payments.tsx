@@ -573,6 +573,14 @@ export default function Payments() {
     );
   };
 
+  const handleAutopayChange = (id: string, enabled: boolean) => {
+    setPaymentMethodsList((prev) =>
+      prev.map((pm) =>
+        pm.id === id ? { ...pm, autopayEnabled: enabled } : pm,
+      ),
+    );
+  };
+
   const HeaderSort = ({
     label,
     field,
