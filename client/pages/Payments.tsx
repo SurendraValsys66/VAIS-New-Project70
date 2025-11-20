@@ -386,6 +386,17 @@ function ModernPaymentCard({
                     ? method.cardNumber
                     : `•••• •••• •••• ${method.cardNumber}`}
                 </p>
+                {method.isDefault && (
+                  <div className="mt-2">
+                    <span
+                      className="inline-flex items-center gap-1.5 bg-green-100 text-green-700 font-semibold px-2.5 py-1 rounded-full border border-green-300"
+                      style={{ fontSize: "11px" }}
+                    >
+                      <span className="inline-flex h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                      Autopay enabled
+                    </span>
+                  </div>
+                )}
               </div>
               {!isPayPal && (
                 <div className="text-right">
