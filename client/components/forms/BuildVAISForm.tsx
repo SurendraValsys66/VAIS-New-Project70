@@ -497,20 +497,20 @@ export default function BuildVAISForm() {
           <p className="text-sm text-valasys-gray-600 leading-relaxed">{topic.description}</p>
         </div>
 
-        <div className="space-y-2 pb-5 border-b border-valasys-gray-200">
-          <div className="flex items-center justify-between py-1.5 px-2">
+        <div className="grid grid-cols-2 gap-4 pb-5 border-b border-valasys-gray-200">
+          <div className="space-y-1">
             <span className="text-xs font-medium text-valasys-gray-500 flex items-center uppercase tracking-wide">
               <Tag className="w-3 h-3 mr-1.5 text-valasys-gray-400" />
               Topic Category
             </span>
-            <span className="text-xs text-valasys-gray-600">{dummyCategory}</span>
+            <p className="text-sm text-valasys-gray-700 font-medium">{dummyCategory}</p>
           </div>
-          <div className="flex items-center justify-between py-1.5 px-2">
+          <div className="space-y-1">
             <span className="text-xs font-medium text-valasys-gray-500 flex items-center uppercase tracking-wide">
               <Layers className="w-3 h-3 mr-1.5 text-valasys-gray-400" />
               Topic Theme
             </span>
-            <span className="text-xs text-valasys-gray-600">{dummyTheme}</span>
+            <p className="text-sm text-valasys-gray-700 font-medium">{dummyTheme}</p>
           </div>
         </div>
 
