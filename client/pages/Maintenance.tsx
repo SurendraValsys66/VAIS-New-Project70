@@ -45,19 +45,13 @@ export default function Maintenance() {
           currently updating the platform with new features and improvements.
         </p>
 
-        {/* Status Card */}
-        <div className="bg-white/60 backdrop-blur-lg border border-valasys-gray-200 rounded-2xl p-6 sm:p-8 mb-8 hover:shadow-lg transition-all duration-300 shadow-md">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <Clock className="w-5 h-5 text-valasys-orange" />
-            <span className="text-valasys-gray-700">Maintenance Duration</span>
-          </div>
-          <div className="font-mono text-3xl font-bold text-valasys-blue mb-4">
-            {formatTime(timeElapsed)}
-          </div>
-          <div className="flex items-center justify-center gap-2 text-sm text-valasys-gray-600">
-            <AlertCircle className="w-4 h-4" />
-            <span>Expected to be back online shortly</span>
-          </div>
+        {/* Maintenance Illustration */}
+        <div className="mb-8">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets%2F16b7c22334424129b7fb42c239b73b18%2F0d18a130aacb4289847ba78aa0da4860?format=webp&width=800"
+            alt="Maintenance in progress"
+            className="max-w-2xl w-full h-auto mx-auto"
+          />
         </div>
 
         {/* Info Grid */}
