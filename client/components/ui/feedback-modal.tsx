@@ -47,6 +47,7 @@ export function FeedbackModal({ open, onOpenChange }: FeedbackModalProps) {
   const [comment, setComment] = useState("");
   const [hoveredRating, setHoveredRating] = useState<number | null>(null);
   const gifRefs = useRef<Record<number, HTMLImageElement | null>>({});
+  const { toast } = useToast();
 
   const handleSendFeedback = () => {
     if (!rating || !comment.trim()) {
@@ -58,6 +59,12 @@ export function FeedbackModal({ open, onOpenChange }: FeedbackModalProps) {
     setRating(3);
     setComment("");
     onOpenChange(false);
+
+    // Show success toast
+    toast({
+      title: "Thank you for your feedback!",
+      description: "We appreciate your input and will use it to improve our service.",
+    });
   };
 
   const insertFormatting = (format: string) => {
