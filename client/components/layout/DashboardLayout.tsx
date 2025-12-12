@@ -118,6 +118,12 @@ const utilityItems = [
     tourId: "downloads-nav",
   },
   {
+    name: "Templates",
+    href: "/templates",
+    icon: Mail,
+    tourId: "templates-nav",
+  },
+  {
     name: "Integrations",
     href: "/integrations",
     icon: Plug,
