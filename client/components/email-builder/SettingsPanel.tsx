@@ -2677,9 +2677,7 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
             </div>
 
             <div>
-              <div className="flex items-center justify-between mb-3">
-                <h4 className="text-xs font-bold text-gray-900">Spacing</h4>
-              </div>
+              <h4 className="text-xs font-bold text-gray-900 mb-3">Spacing</h4>
               <div className="space-y-3">
                 <div>
                   <div className="flex items-center justify-between mb-2">
@@ -2876,7 +2874,60 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
             </div>
 
             <div>
-              <h4 className="text-xs font-bold text-gray-900 mb-3">Borders</h4>
+              <h4 className="text-xs font-bold text-gray-900 mb-3">
+                Background
+              </h4>
+              <div className="space-y-3">
+                <div>
+                  <Label className="text-xs text-gray-700 mb-1 block">
+                    Color
+                  </Label>
+                  <Input
+                    type="color"
+                    value={(block as any).backgroundColor || "#ffffff"}
+                    onChange={(e) =>
+                      onBlockUpdate({
+                        ...block,
+                        backgroundColor: e.target.value,
+                      })
+                    }
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4 className="text-xs font-bold text-gray-900 mb-3">
+                Rounded corners
+              </h4>
+              <div className="space-y-3">
+                <div>
+                  <Label className="text-xs text-gray-700 mb-1 block">
+                    Radius
+                  </Label>
+                  <div className="flex gap-2">
+                    <Input
+                      type="number"
+                      min="0"
+                      value={block.borderRadius}
+                      onChange={(e) =>
+                        onBlockUpdate({
+                          ...block,
+                          borderRadius: parseInt(e.target.value),
+                        })
+                      }
+                      className="flex-1 focus:ring-valasys-orange focus:ring-2"
+                    />
+                    <span className="px-2 py-1 text-sm text-gray-600">px</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <h4 className="text-xs font-bold text-gray-900">Borders</h4>
+              </div>
               <div className="space-y-3">
                 <div>
                   <Label className="text-xs text-gray-700 mb-1 block">
@@ -2916,34 +2967,8 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
 
             <div>
               <h4 className="text-xs font-bold text-gray-900 mb-3">
-                Rounded corners
+                Content visibility
               </h4>
-              <div className="space-y-3">
-                <div>
-                  <Label className="text-xs text-gray-700 mb-1 block">
-                    Radius
-                  </Label>
-                  <div className="flex gap-2">
-                    <Input
-                      type="number"
-                      min="0"
-                      value={block.borderRadius}
-                      onChange={(e) =>
-                        onBlockUpdate({
-                          ...block,
-                          borderRadius: parseInt(e.target.value),
-                        })
-                      }
-                      className="flex-1 focus:ring-valasys-orange focus:ring-2"
-                    />
-                    <span className="px-2 py-1 text-sm text-gray-600">px</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h4 className="text-xs font-bold text-gray-900 mb-3">Show on</h4>
               <p className="text-xs text-gray-500 mb-3">
                 Display content based on the type of device or other specific
                 conditions
