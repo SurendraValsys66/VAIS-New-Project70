@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Trash2, X } from "lucide-react";
+import { SocialLinksEditor } from "./SocialLinksEditor";
 
 interface SettingsPanelProps {
   block: ContentBlock | null;
