@@ -22,9 +22,11 @@ export const EmailCanvas: React.FC<EmailCanvasProps> = ({
   template,
   templateSubject,
   selectedBlockId,
+  selectedFooterElement,
   onAddBlock,
   onBlockUpdate,
   onBlockSelect,
+  onFooterElementSelect,
   onTemplateSubjectChange,
   onBackgroundColorChange,
 }) => {
