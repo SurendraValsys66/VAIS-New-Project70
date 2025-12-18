@@ -23,6 +23,7 @@ import {
   saveTemplateToLocalStorage,
   getTemplatesFromLocalStorage,
   deleteTemplateFromLocalStorage,
+  generateId,
 } from "./utils";
 import {
   Save,
