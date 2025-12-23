@@ -1431,17 +1431,29 @@ export default function MyDownloadedList() {
                 </div>
               </>
             ) : (
-              <div className="mb-3 grid grid-cols-1 md:grid-cols-3 gap-3">
-                <Card>
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-sm">Choose CRM</CardTitle>
+              <div className="mb-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+                {/* Step 1: Choose CRM */}
+                <Card className="relative overflow-hidden border-l-4 border-l-blue-500">
+                  <div className="absolute top-0 right-0 w-12 h-12 bg-blue-50 rounded-bl-full opacity-50"></div>
+                  <CardHeader className="pb-3 relative z-10">
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <div className="text-xs font-bold text-blue-600 uppercase tracking-wider mb-1">
+                          Step 1
+                        </div>
+                        <CardTitle className="text-sm">Select CRM Account</CardTitle>
+                      </div>
+                      <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 text-xs font-bold">
+                        1
+                      </span>
+                    </div>
                   </CardHeader>
-                  <CardContent className="pt-0">
+                  <CardContent className="pt-0 relative z-10">
                     <Select
                       value={selectedCrm}
                       onValueChange={(v) => setSelectedCrm(v as any)}
                     >
-                      <SelectTrigger className="w-full">
+                      <SelectTrigger className="w-full border-blue-200 focus:border-blue-500">
                         <SelectValue placeholder="Select CRM" />
                       </SelectTrigger>
                       <SelectContent>
@@ -1458,11 +1470,24 @@ export default function MyDownloadedList() {
                     </Select>
                   </CardContent>
                 </Card>
-                <Card>
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-sm">Upload file</CardTitle>
+
+                {/* Step 2: Upload File */}
+                <Card className="relative overflow-hidden border-l-4 border-l-orange-500">
+                  <div className="absolute top-0 right-0 w-12 h-12 bg-orange-50 rounded-bl-full opacity-50"></div>
+                  <CardHeader className="pb-3 relative z-10">
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <div className="text-xs font-bold text-orange-600 uppercase tracking-wider mb-1">
+                          Step 2
+                        </div>
+                        <CardTitle className="text-sm">Upload Data</CardTitle>
+                      </div>
+                      <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-orange-100 text-orange-600 text-xs font-bold">
+                        2
+                      </span>
+                    </div>
                   </CardHeader>
-                  <CardContent className="pt-0">
+                  <CardContent className="pt-0 relative z-10">
                     <Button
                       disabled={isUploadingCrm || uploadDone}
                       onClick={() => {
@@ -1472,31 +1497,27 @@ export default function MyDownloadedList() {
                           setUploadDone(true);
                         }, 1500);
                       }}
-                      className="w-full bg-gradient-to-r from-valasys-orange to-valasys-orange-light text-white"
+                      className={cn(
+                        "w-full transition-all",
+                        uploadDone
+                          ? "bg-green-500 hover:bg-green-600"
+                          : "bg-gradient-to-r from-valasys-orange to-valasys-orange-light text-white hover:shadow-lg",
+                      )}
                     >
                       {isUploadingCrm ? (
                         <>
-                          <Loader2 className="h-4 w-4 mr-2 animate-spin" />{" "}
-                          Uploading to{" "}
-                          {selectedCrm === "hubspot"
-                            ? "HubSpot"
-                            : selectedCrm === "salesforce"
-                              ? "Salesforce"
-                              : "Marketo"}
-                          ...
+                          <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                          Uploading...
                         </>
                       ) : uploadDone ? (
                         <>
-                          <CheckCircle2 className="h-4 w-4 mr-2" /> Uploaded to{" "}
-                          {selectedCrm === "hubspot"
-                            ? "HubSpot"
-                            : selectedCrm === "salesforce"
-                              ? "Salesforce"
-                              : "Marketo"}
+                          <CheckCircle2 className="h-4 w-4 mr-2" />
+                          Upload Complete
                         </>
                       ) : (
                         <>
-                          <UploadCloud className="h-4 w-4 mr-2" /> Upload to{" "}
+                          <UploadCloud className="h-4 w-4 mr-2" />
+                          Upload to{" "}
                           {selectedCrm === "hubspot"
                             ? "HubSpot"
                             : selectedCrm === "salesforce"
@@ -1507,16 +1528,30 @@ export default function MyDownloadedList() {
                     </Button>
                   </CardContent>
                 </Card>
-                <Card>
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-sm">Verify in CRM</CardTitle>
+
+                {/* Step 3: Verify in CRM */}
+                <Card className="relative overflow-hidden border-l-4 border-l-green-500">
+                  <div className="absolute top-0 right-0 w-12 h-12 bg-green-50 rounded-bl-full opacity-50"></div>
+                  <CardHeader className="pb-3 relative z-10">
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <div className="text-xs font-bold text-green-600 uppercase tracking-wider mb-1">
+                          Step 3
+                        </div>
+                        <CardTitle className="text-sm">Verify & Done</CardTitle>
+                      </div>
+                      <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-green-100 text-green-600 text-xs font-bold">
+                        3
+                      </span>
+                    </div>
                   </CardHeader>
-                  <CardContent className="flex items-center gap-2 pt-0">
+                  <CardContent className="flex flex-col gap-2 pt-0 relative z-10">
                     <Button
                       asChild
                       variant="outline"
                       size="sm"
                       disabled={!uploadDone}
+                      className="border-green-300 hover:bg-green-50 disabled:opacity-50"
                     >
                       <a
                         href={
@@ -1529,7 +1564,7 @@ export default function MyDownloadedList() {
                         target="_blank"
                         rel="noreferrer"
                       >
-                        Open{" "}
+                        <span>Open</span>
                         {selectedCrm === "hubspot"
                           ? "HubSpot"
                           : selectedCrm === "salesforce"
@@ -1537,7 +1572,7 @@ export default function MyDownloadedList() {
                             : "Marketo"}
                       </a>
                     </Button>
-                    <Button asChild variant="outline" size="sm">
+                    <Button asChild variant="outline" size="sm" className="border-gray-300">
                       <a
                         href={
                           selectedCrm === "hubspot"
@@ -1549,7 +1584,7 @@ export default function MyDownloadedList() {
                         target="_blank"
                         rel="noreferrer"
                       >
-                        View Import Guide
+                        View Guide
                       </a>
                     </Button>
                   </CardContent>
